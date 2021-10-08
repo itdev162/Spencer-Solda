@@ -11,10 +11,11 @@ namespace Persistence
     public class DataContext : DbContext
     {
         public DbSet<Value> Values { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuidler)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuidler.Entity<Value>().HasData(
+            modelBuilder.Entity<Value>().HasData(
                 new Value { Id = 1, Name = "Value1" },
                 new Value { Id = 2, Name = "Value2" },
                 new Value { Id = 3, Name = "Value3" }
